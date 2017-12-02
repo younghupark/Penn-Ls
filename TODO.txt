@@ -2,7 +2,7 @@ TODO:
 
 1. Main Header
 2. Map
-3. Textbook
+3. Textbox
 4. Pin Images
 5. Submit Button
 6. Add Pin Button
