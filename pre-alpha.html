@@ -10,6 +10,8 @@
         background-color: grey;
       }
     </style>
+    <script src = "jquery-3.3.1.js"></script>
+
   </head>
   <body>
     <h1>Penn Ls</h1>
@@ -23,24 +25,13 @@
       <button class="nav" id="regular pin">MERT</button>
     </div>
 
-    <h3>My Google Maps Demo</h3>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
+    <h3>Map of Ls</h3>
+    <div id="map">  </div>
+    <script src = "pre-alpha.js"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-QS03toF8LdDlwqjzHvkXzyYXCj47M-w&callback=initMap">
     </script>
+
 
   </body>
 </html>
