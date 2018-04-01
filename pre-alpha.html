@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Penn Ls</title>
+    <link href ='pre-alpha.css' type = "text/css" rel = 'stylesheet' />
+    <script type="text/javascript" source = "main.js"></script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Marker Clustering</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #inputBar {
+        align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Header -->
+  <div id="topHeader">
+    <h1>Taking Ls on the daily?</h1>
+
+    <div id = "Intro">
+      <h2>You aren't alone.</h2>
+    </div>
+  </div>
+
+  <!-- Identity Input -->
+  <div id="inputBar">
+
+  <!-- <input type="text" list="name" placeholder="Name" />
+  <datalist id = "name">
+      <option>Anonymous</option>
+      <option>Snek</option>
+    </datalist> -->
+  <input type="text" name="year" placeholder="Year">
+  <input type="text" name="school" placeholder="School">
+
+  <!-- Post Input -->
+  <input type="textarea" name="post" placeholder="Tell us what happened...">
+</div>
+
+  <!-- Post Bar -->
+  <div>
+    <i class="far fa-smile"></i>
+    <i class="fas fa-camera"></i>
+    <i class="fas fa-video"></i>
+  </div>
+
+
+  <!-- Response Collector -->
+
+  <html lang='en'>
+    <head>
+      <meta charset='utf-8'>
+      <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+      <meta content='width=device-width, initial-scale=1' name='viewport'>
+    </head>
+    <body>
+      <!-- Contact Form - sent to a Google Sheet -->
+      <form id='foo'>
+        <p>
+          <label>Type Entry Here</label>
+          <textarea id='response' name='response' rows='5'></textarea>
+        </p>
+          <div id='success'></div>
+          <button type='submit'>Send</button>
+      </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src='goog-sheet.js'></script>
+  </html>
+
+  <!-- Google Maps -->
+  <div id="map"></div>
+
+
+      <script>
+
+      var map;
+      var penn = {lat: 39.952219, lng: -75.193214};
+      var x = 39.952;
+      var y = -75.193;
+      var marker;
+      var fixedMarker;
+
+        function initMap() {
+
+          map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 17,
+            center: penn
+
+          });
+
+         //Syncing the Button
+          var myDiv = document.getElementById("inputBar");
+          var centerControl = new AddPinButton(myDiv, map);
+          var centerControl2 = new SubmitButton(myDiv, map);
+
+          var markerCluster = new MarkerClusterer(map, markers,
+              {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+
+      }
+
+        function addMarker(location, map) {
+          marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          draggable: true
+        });
+      }
+
+      function fixMarker(location, map) {
+          fixedMarker = new google.maps.Marker({
+          position: location,
+          map: map,
+          draggable: false
+        });
+      }
+
+      function AddPinButton(div, map) {
+        var button = document.createElement('BUTTON');
+        var t = document.createTextNode("Add a pin!");
+        button.appendChild(t);
+        div.appendChild(button);
+
+        button.addEventListener('click', function() {
+           addMarker(penn, map);
+      });
+
+    }
+      function SubmitButton(div, map) {
+        var button = document.createElement('BUTTON');
+        var t = document.createTextNode("Submit!");
+        button.appendChild(t);
+        div.appendChild(button);
+
+        button.addEventListener('click', function() {
+          x = marker.getPosition().lat();
+          y = marker.getPosition().lng();
+          var year = document.getElementsByName('year')[0].value
+          var school = document.getElementsByName('school')[0].value
+          var post = document.getElementsByName('post')[0].value
+          alert(post)
+          fixMarker({lat: x, lng: y}, map);
+      });
+
+    }
+
+      </script>
+
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfOxSbIdO5wtfjwLqMbp8_ELNUexdx-4M&callback=initMap">
+      </script>
+    </body>
+  </html>
