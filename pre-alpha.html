@@ -59,6 +59,9 @@
         <p>
           <label>Type Entry Here</label>
           <textarea id='response' name='response' rows='5'></textarea>
+          <textarea id='lat' name = 'lat' style="display:none;"></textarea>
+          <textarea id='long' name = 'long' style="display:none;"></textarea>
+
         </p>
           <div id='success'></div>
           <div id='buttons'>
@@ -88,6 +91,16 @@
       var fixedMarker;
 
         function initMap() {
+          //FIX THIS LINE
+          /*$.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1P1lrztphPkwntvwGg9LK6vJsm-IE7PGYBTcBbqt_S_0/values/Sheet1!A2:Q?key=AIzaSyCT0Z2By1jMgdRHzWRfNNr4f2Jf6BCiKRA", function(data) {
+            $(data.values).each(function() {
+                		var location = {};
+            				location.response = this[1];
+            				location.lat = parseFloat(this[2]);
+                  	location.long = parseFloat(this[3]);
+            	  		    locations.push(location);
+
+          });*/
 
           map = new google.maps.Map(document.getElementById('map'), {
             zoom: 17,
@@ -150,6 +163,8 @@
       document.getElementById("submit").addEventListener("click", function(){
         x = marker.getPosition().lat();
         y = marker.getPosition().lng();
+        document.getElementById("foo").elements["lat"].value = x;
+        document.getElementById("foo").elements["long"].value = y;
         markerLabel = document.getElementById("foo").elements["response"].value;
         fixMarker({lat: x, lng: y}, map, markerLabel);
       });
