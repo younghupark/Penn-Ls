@@ -34,19 +34,7 @@
   </div>
 
   <!-- Identity Input -->
-  <div id="inputBar">
 
-  <!-- <input type="text" list="name" placeholder="Name" />
-  <datalist id = "name">
-      <option>Anonymous</option>
-      <option>Snek</option>
-    </datalist> -->
-  <input type="text" name="year" placeholder="Year">
-  <input type="text" name="school" placeholder="School">
-
-  <!-- Post Input -->
-  <input type="textarea" name="post" placeholder="Tell us what happened...">
-</div>
 
   <!-- Post Bar -->
   <div>
@@ -66,14 +54,20 @@
     </head>
     <body>
       <!-- Contact Form - sent to a Google Sheet -->
+
       <form id='foo'>
         <p>
           <label>Type Entry Here</label>
           <textarea id='response' name='response' rows='5'></textarea>
         </p>
           <div id='success'></div>
-          <button type='submit'>Send</button>
+          <div id='buttons'>
+            <button id='submit' type='submit'>Send</button>
+          </div>
+
       </form>
+
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- Custom Theme JavaScript -->
@@ -102,9 +96,10 @@
           });
 
          //Syncing the Button
-          var myDiv = document.getElementById("inputBar");
+          var myDiv = document.getElementById("buttons");
           var centerControl = new AddPinButton(myDiv, map);
-          var centerControl2 = new SubmitButton(myDiv, map);
+          Coordinate(myDiv, map);
+          // var centerControl2 = new SubmitButton(myDiv, map);
 
           var markerCluster = new MarkerClusterer(map, markers,
               {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
@@ -119,11 +114,23 @@
         });
       }
 
-      function fixMarker(location, map) {
+      function getName(div, map) {
+      }
+
+      function fixMarker(location, map, comment) {
+
+         var infoWindow = new google.maps.InfoWindow({
+           content: comment
+         });
+
           fixedMarker = new google.maps.Marker({
           position: location,
           map: map,
           draggable: false
+        });
+          fixedMarker.addListener('click', function() {
+            infoWindow.open(map, fixedMarker);
+
         });
       }
 
@@ -138,7 +145,21 @@
       });
 
     }
-      function SubmitButton(div, map) {
+
+    function Coordinate(div, map) {
+      document.getElementById("submit").addEventListener("click", function(){
+        x = marker.getPosition().lat();
+        y = marker.getPosition().lng();
+        markerLabel = document.getElementById("foo").elements["response"].value;
+        fixMarker({lat: x, lng: y}, map, markerLabel);
+      });
+
+    }
+
+
+
+
+    /*  function SubmitButton(div, map) {
         var button = document.createElement('BUTTON');
         var t = document.createTextNode("Submit!");
         button.appendChild(t);
@@ -154,7 +175,9 @@
           fixMarker({lat: x, lng: y}, map);
       });
 
-    }
+    }*/
+
+
 
       </script>
 
