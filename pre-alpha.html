@@ -89,17 +89,11 @@
       var y = -75.193;
       var marker;
       var fixedMarker;
-      var locations = [];
       var spreadsheetID = "1P1lrztphPkwntvwGg9LK6vJsm-IE7PGYBTcBbqt_S_0";
       var apiKey = "AIzaSyD112yF6ORTtrx1-ugfhJLcx1VHDOla1Vs";
       var url = "https://spreadsheets.google.com/feeds/list/1P1lrztphPkwntvwGg9LK6vJsm-IE7PGYBTcBbqt_S_0/od6/public/values?alt=json";
 
         function initMap() {
-
-          map = new google.maps.Map(document.getElementById('map'), {
-                  zoom: 17,
-                  center: penn
-          });
 
           $.getJSON(url, function(data) {
 
@@ -107,6 +101,11 @@
               var entries = data.feed.entry[i];
               var new_marker = loadMarker(map, entries);
             }
+         });
+
+         map = new google.maps.Map(document.getElementById('map'), {
+                 zoom: 17,
+                 center: penn
          });
 
          Coordinate(map);
@@ -137,15 +136,13 @@
             return marker;
           }
 
-         //Syncing the Button
-
-
 
         function addMarker(location, map) {
           marker = new google.maps.Marker({
           position: location,
           map: map,
-          draggable: true
+          draggable: true,
+          animation: google.maps.Animation.DROP
         });
       }
 
