@@ -37,6 +37,7 @@ textarea {
   font-family: 'Lustria', serif;
   size: 20px;
   border: 2px solid black;
+  border-radius: 10px;
 }
 
 .btn:focus {
@@ -49,8 +50,8 @@ textarea {
 
 #title-container {
   display: inline-block;
-  min-width: 400px;
-  padding-left: 10px;
+  min-width: 440px;
+  padding-left: 40px;
   text-align: left;
 }
 
@@ -58,6 +59,7 @@ textarea {
   display: inline-block;
   flex-direction: column;
   padding: 20px 0;
+  min-width: 1000px;
 }
 
 #contents {
@@ -79,7 +81,7 @@ textarea {
   justify-content: space-around;
   flex-direction: column;
   text-align: center;
-  min-width: 300px;
+  min-width: 400px;
 }
 
 #nonmap {
@@ -100,10 +102,10 @@ textarea {
 
 #map_container {
   display: flex;
-  flex-flow: flex-wrap;
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+  padding-right: 20px;
 }
 
 #map {
@@ -114,6 +116,8 @@ textarea {
   width: 950px;
   height: 600px;
   background-color: grey;
+  border: 2px solid #000000 !important;
+  border-radius: 10px;
 }
 
 #pins {
@@ -123,26 +127,18 @@ textarea {
   justify-content: space-around;
 }
 
-button {
+
+.btn {
   display: block;
   background-color: #db3236;
-  border: 2px solid '#000000';
+  border: 2px solid #000000 !important;
   font-family: 'Fredoka One', cursive;
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
   height: 40px;
   text-align: center;
   letter-spacing:2px;
   text-shadow:0;
-  border-radius: 24px;
-}
+  border-radius: 10px;
 
-.btn.outline {
-	background: none;
-	padding: 12px 22px;
-}
-
-.btn-primary.outline {
-	border: 2px solid #000000;
-	color: #000000;
 }
