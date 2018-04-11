@@ -3,10 +3,12 @@
 <html>
   <head>
     <title>Penn Ls</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link href ='pre-alpha.css' type = "text/css" rel = 'stylesheet' />
     <script type="text/javascript" source = "main.js"></script>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
     <title>Marker Clustering</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -16,63 +18,69 @@
         margin: 0;
         padding: 0;
       }
-      #inputBar {
-        align: center;
-      }
     </style>
   </head>
-  <meta charset='utf-8'>
-  <meta content='IE=edge' http-equiv='X-UA-Compatible'>
-  <meta content='width=device-width, initial-scale=1' name='viewport'>
-</head>
 
   <body>
-    <!-- Header -->
-  <div id="topHeader">
-    <h1>Taking Ls on the daily?</h1>
 
-    <div id = "Intro">
-      <h2>You aren't alone.</h2>
+    <!-- Header -->
+  <div class = "flex-container" id="topHeader">
+
+    <div id = "title-container">
+      <h1>Penn Ls</h1>
+    </div>
+
+    <div class= "container" id = "intro">
+      <h2>
+       Fell on Locust? Failed a midterm? Give us your worst at your worst.
+     </h2>
+     <h5>A Side Project by Younghu Park</h5>
     </div>
   </div>
+      <!-- Contact Form - sent to a Google Sheet -->
 
-  <div id="form">
+ <div class = "flex-container" id="contents">
 
-    <button id='addPin'>Add A Pin</button>
-    <form id='foo'>
-      <h2>Tell Us What Happened</h2>
-      <p>
-        <textarea id='response' name='response' style="resize:none" rows='10' cols='50'></textarea>
-        <textarea id='lat' name = 'lat' style="display:none;"></textarea>
-        <textarea id='long' name = 'long' style="display:none;"></textarea>
-      </p>
-        <div id='success'></div>
-        <button id='submit' type='submit'>Submit</button>
-    </form>
+   <div class = "container" id="map_container">
+     <div id="map"></div>
+   </div>
+
+    <div class = "container" id= "nonmap_container">
+       <h3>So what happened?</h3>
+       <div id ="nonmap">
+        <button  class="btn btn col-sm-12" id='addPin'>Add A Pin</button>
+         <div class = "reg" id="form">
+          <form class = "reg" id='foo'>
+              <p>
+                <textarea id='response' name='response' rows='15' cols='40'></textarea>
+                <textarea id='lat' name = 'lat' style="display:none;"></textarea>
+                <textarea id='long' name = 'long' style="display:none;"></textarea>
+              </p>
+              <button class="btn btn col-sm-12" id='submit' type='submit' style='background: #FFFFFF;' disabled="true">Submit</button>
+          </form>
+          </div>
+
+     </div>
+   </div>
+
+      <div id="thankyou" style="display:none;">
+          <h3>Thanks for submitting! </h3>
+    </div>
+
+
 
   </div>
 
-<div id="map"></div>
-
-
-</body>
-
-    <!-- Google Maps -->
-
-
-
-    <!-- JavaScript -->
-    <script src='goog-sheet.js'></script>
-    <script src = 'all-things-google.js'></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <!-- Custom Theme JavaScript -->
 
-  </html>
+    <script src='goog-sheet.js'></script>
+    <script src='all-things-google.js'></script>
 
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVLGl1z9zmLDukRkQgbdjdkQL-f3qbdkY&callback=initMap">
-  </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVLGl1z9zmLDukRkQgbdjdkQL-f3qbdkY&callback=initMap">
+      </script>
+
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     </body>
   </html>
