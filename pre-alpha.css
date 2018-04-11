@@ -46,10 +46,11 @@ textarea {
 }
 
 #canvas {
-  padding: 20px;
+  padding: 10px;
   flex-direction: column;
   text-align: center;
 }
+
 
 #title-container {
   display: inline-block;
