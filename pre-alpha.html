@@ -23,6 +23,9 @@
 
   <body>
 
+  <div id = "canvas">
+
+
     <!-- Header -->
   <div class = "flex-container" id="topHeader">
 
@@ -32,12 +35,13 @@
 
     <div class= "container" id = "intro">
       <h2>
-       Fell on Locust? Failed a midterm? Give us your worst at your worst.
-     </h2>
+    Drop a pin and turn your Ls into LOLs.
+  </h2>
      <h5>A Side Project by Younghu Park</h5>
     </div>
   </div>
-      <!-- Contact Form - sent to a Google Sheet -->
+
+  <!-- Contents -->
 
  <div class = "flex-container" id="contents">
 
@@ -46,30 +50,35 @@
    </div>
 
     <div class = "container" id= "nonmap_container">
-       <h3>So what happened?</h3>
        <div id ="nonmap">
-        <button  class="btn col-sm-12" id='addPin'>Add A Pin</button>
+        <div id = "nonmap-title">
+          <h3>So what happened?</h3>
+        </div>
+        <div id = "addPin-container">
+          <button  class="btn col-sm-12" id='addPin'>Add A Pin</button>
+        </div>
          <div class = "reg" id="form">
           <form class = "reg" id='foo'>
               <p>
-                <textarea id='response' name='response' rows='15' style="width:100%;" ></textarea>
+                <textarea id='response' name='response' rows='18' style="width:100%;" ></textarea>
                 <textarea id='lat' name = 'lat' style="display:none;"></textarea>
                 <textarea id='long' name = 'long' style="display:none;"></textarea>
               </p>
-              <button class="btn btn col-sm-12" id='submit' type='submit' style='background: #FFFFFF;' disabled="true">Submit</button>
-          </form>
+              <div id= "submit-container">
+                <button class="btn btn col-sm-12" id='submit' type='submit' style='background: #FFFFFF;' disabled="true">Submit</button>
+            </form>
+              </div>
+
           </div>
-
      </div>
-   </div>
 
-      <div id="thankyou" style="display:none;">
-          <h3>Thanks for submitting! </h3>
+     <div id="thankyou" style="display:none;">
+         <h3>Thanks for submitting! </h3>
     </div>
-
-
-
+    </div>
   </div>
+
+</div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 

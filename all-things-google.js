@@ -100,7 +100,7 @@ document.getElementById("submit").addEventListener("click", function(){
   document.getElementById("lat").value = x;
   document.getElementById("long").value = y;
   var markerLabel = document.getElementById("response").value;
-  document.getElementById("nonmap_container").style.display = "none";
+  document.getElementById("nonmap").style.display = "none";
   document.getElementById("thankyou").style.display = "";
   fixMarker({lat: x, lng: y}, map, markerLabel);
  }

@@ -33,6 +33,7 @@ h5 {
 
 }
 
+
 textarea {
   font-family: 'Lustria', serif;
   size: 20px;
@@ -44,8 +45,10 @@ textarea {
   outline: none;
 }
 
-#topHeader {
-  padding-top: 20px;
+#canvas {
+  padding: 20px;
+  flex-direction: column;
+  text-align: center;
 }
 
 #title-container {
@@ -60,10 +63,11 @@ textarea {
   flex-direction: column;
   padding: 20px 0;
   min-width: 1000px;
+  text-align: left;
 }
 
 #contents {
-  padding: 40px;
+  padding: 10px;
   display: flex;
   flex-flow: flex-wrap;
   flex-direction: rows;
@@ -74,6 +78,14 @@ textarea {
 #foo {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+#addPin-container {
+  padding-bottom: 10px;
+}
+
+#submit-container {
+  padding-top: 15px;
 }
 
 #nonmap_container {
@@ -90,6 +102,11 @@ textarea {
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+  padding-bottom: 30px;
+}
+
+#nonmap-title {
+  padding-bottom: 20px;
 }
 
 #thankyou {
@@ -98,7 +115,6 @@ textarea {
   justify-content: space-around;
   text-align: center;
 }
-
 
 #map_container {
   display: flex;
@@ -139,6 +155,4 @@ textarea {
   text-align: center;
   letter-spacing:2px;
   text-shadow:0;
-  border-radius: 10px;
-
 }
